@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- Add you code here -->
+                <!-- Add you code here -->
+        <!-- mapel tree view -->
+        <record id="mapel_view_tree" model="ir.ui.view">
+            <field name="name">mapel.view.tree</field>
+            <field name="model">mapel</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="rank"/>
+                    <field name="siswa"/>
+                    <field name="kelas_id"/>
+                    <field name="n_agama"/>
+                    <field name="n_ipa"/>    
+                    <field name="n_ips"/>    
+                    <field name="total"/>
+                    <field name="rerata"/>
+                </tree>
+            </field>
+        </record>
+        <!-- mapel form view -->
+        <record id="mapel_view_form" model="ir.ui.view">
+            <field name="name">mapel.view.form</field>
+            <field name="model">mapel</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="rank"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group string="Biodata">
+                                <!-- Add your fields here -->
+                                <field name="siswa"/>
+                                <field name="kelas_id"/>   
+                            </group>
+                            <group string="Nilai ">
+                                <field name="n_agama"/>
+                                <field name="n_ipa"/>    
+                                <field name="n_ips"/> 
+                            </group>
+                        </group>    
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        
+        <!--  action window -->
+        <record id="kelas_x_action" model="ir.actions.act_window">
+            <field name="name">Kelas X</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mapel</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('kelas_id', '=', 'x')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                </p>
+            </field>
+        </record>
+        <record id="kelas_xi_action" model="ir.actions.act_window">
+            <field name="name">Kelas XI</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mapel</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('kelas_id', '=', 'xi')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                </p>
+            </field>
+        </record>
+
+        <!-- search view -->
+        <record id="rank_view_search" model="ir.ui.view">
+            <field name="name">rank.view.search</field>
+            <field name="model">mapel</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <field name="rank"/>
+                    <field name="siswa"/>
+                    <filter string="Remidi Agama" name="n_agama" domain="[('n_agama', '&lt;=', '75')]"/>
+                    <filter string="Lulus Agama" name="n_agama" domain="[('n_agama', '&gt;=', '75')]"/>
+                    <filter string="Remidi IPA" name="n_ipa" domain="[('n_ipa', '&lt;=', '75')]"/>
+                    <filter string="Lulus IPA" name="n_ipa" domain="[('n_ipa', '&gt;=', '75')]"/>
+                    <filter string="Remidi IPS" name="n_ips" domain="[('n_ips', '&lt;=', '75')]"/>
+                    <filter string="Lulus IPS" name="n_ips" domain="[('n_ips', '&gt;=', '75')]"/>
+                    <!-- <group expand="1" string="Group By">
+                        <filter string="Remidi" name = "rerata" context="{'group_by' : 'rerata'}"/>
+                        <filter string="Lulus" name = "rerata" context="{'group_by' : 'rerata'}"/>    
+                    </group> -->
+                </search>
+            </field>
+        </record>
+        <record id="kelas_xii_action" model="ir.actions.act_window">
+            <field name="name">Kelas XII</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mapel</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('kelas_id', '=', 'xii')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="ranking_menu_categ" name="Ranking" parent="rapot_menu_root" sequence="20"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="kelas_x_menu_act" name="Kelas X" parent="ranking_menu_categ" action="kelas_x_action" sequence="10"/>
+        <menuitem id="kelas_xi_menu_act" name="Kelas XI" parent="ranking_menu_categ" action="kelas_xi_action" sequence="20"/>
+        <menuitem id="kelas_xii_menu_act" name="Kelas XII" parent="ranking_menu_categ" action="kelas_xii_action" sequence="30"/>
+    </data>
+</odoo>

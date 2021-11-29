@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_siswa,access_siswa,model_siswa,,1,1,1,1
+access_mapel,access_mapel,model_mapel,,1,1,1,1
+access_agama,access_agama,model_agama,,1,1,1,1
+access_ipa,access_ipa,model_ipa,,1,1,1,1
+access_ips,access_ips,model_ips,,1,1,1,1

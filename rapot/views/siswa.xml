@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <!-- VIEW SISWA -->
+
+        <!-- Add you code here -->
+        <!-- siswa tree view -->
+        <record id="siswa_view_tree" model="ir.ui.view">
+            <field name="name">siswa.view.tree</field>
+            <field name="model">siswa</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="nama_siswa"/>
+                    <field name="nis"/>
+                    <field name="j_kel"/>
+                    <field name="kelas"/>
+                    <!-- <field name="n_agama"/>
+                    <field name="n_ipa"/>
+                    <field name="n_ips"/> -->
+                </tree>
+            </field>
+        </record>
+        <!-- siswa form view -->
+        <record id="siswa_view_form" model="ir.ui.view">
+            <field name="name">siswa.view.form</field>
+            <field name="model">siswa</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="nama_siswa"/>
+                            <field name="nis"/>
+                            <field name="kelas"/>
+                            <!-- <field name="n_agama"/>
+                            <field name="n_ipa"/>
+                            <field name="n_ips"/> -->
+                            <field name="tmp_lahir"/>
+                            <field name="tgl_lahir"/>
+                            <field name="j_kel"/>
+                            <field name="agama"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- gender search view -->
+        <record id="siswa_view_search" model="ir.ui.view">
+            <field name="name">siswa.view.search</field>
+            <field name="model">siswa</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <field name="nama_siswa"/>
+                    <field name="kelas"/>
+                    <filter string="Laki-Laki" name="L" domain="[('j_kel', '=', 'L')]"/>
+                    <filter string="Perempuan" name="P" domain="[('j_kel', '=', 'P')]"/>
+                    <group expand="1" string="Group By">
+                        <filter string="J. Kelamin" name = "j_kel" context="{'group_by' : 'j_kel'}"/>
+                        <filter string="Kelas" name = "kelas" context="{'group_by' : 'kelas'}"/>    
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!-- siswa action window -->
+        <record id="siswa_action" model="ir.actions.act_window">
+            <field name="name">Data Siswa</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">siswa</field>
+            <field name="context">{'group_by':'kelas'}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+        <menuitem id="rapot_menu_root" name="Rapot" sequence="10"/>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="rapot_menu_categ" name="Master" parent="rapot_menu_root" sequence="10"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="siswa_menu_act" name="Data Siswa" parent="rapot_menu_categ" action="siswa_action" sequence="10"/>
+
+    </data>
+</odoo>

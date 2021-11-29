@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+   
+        <!-- UJIAN AGAMA -->
+
+        <record id="agama_view_tree" model="ir.ui.view">
+            <field name="name">Data Agama</field>
+            <field name="model">agama</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="peserta"/>
+                    <field name="j_kel"/>
+                    <field name="kelas"/>
+                    <field name="uh1"/>
+                    <field name="uh2"/>
+                    <field name="uh3"/>
+                    <field name="uts"/>
+                    <field name="uas"/>
+                    <field name="total" optional="show"/>
+                    <field name="rerata" optional="show"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="agama_view_form" model="ir.ui.view">
+            <field name="name">Agama</field>
+            <field name="model">agama</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="peserta"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <!-- Add your fields here -->
+                            <group string="Ulangan Harian">
+                                <field name="uh1"/>
+                                <field name="uh2"/>
+                                <field name="uh3"/>                                
+                            </group>
+                            <group string="Ujian Semester">    
+                                <field name="uts"/>
+                                <field name="uas"/>
+                            </group>    
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search view -->
+        <record id="agama_view_search" model="ir.ui.view">
+            <field name="name">Agama Search</field>
+            <field name="model">agama</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <field name="peserta"/>
+                    <field name="j_kel"/>
+                    <field name="kelas"/>
+                    <filter string="Remidi UH 1" name="uh1" domain="[('uh1', '&lt;=', '80')]"/>
+                    <filter string="Lulus UH 1" name="uh1" domain="[('uh1', '&gt;=', '80')]"/>
+                    <filter string="Remidi UH 2" name="uh2" domain="[('uh2', '&lt;=', '80')]"/>
+                    <filter string="Lulus UH 2" name="uh2" domain="[('uh2', '&gt;=', '80')]"/>
+                    <filter string="Remidi UH 3" name="uh3" domain="[('uh3', '&lt;=', '80')]"/>
+                    <filter string="Lulus UH 3" name="uh3" domain="[('uh3', '&gt;=', '80')]"/>
+                    <filter string="Remidi UTS" name="uts" domain="[('uts', '&lt;=', '80')]"/>
+                    <filter string="Lulus UTS" name="uts" domain="[('uts', '&gt;=', '80')]"/>
+                    <filter string="Remidi UAS" name="uas" domain="[('uas', '&lt;=', '80')]"/>
+                    <filter string="Lulus UAS" name="uas" domain="[('uas', '&gt;=', '80')]"/>
+                    <group expand="1" string="Gender">
+                        <filter string="Laki-Laki" name = "j_kel" context="{'group_by' : 'j_kel'}"/>
+                        <filter string="Perempuan" name = "j_kel" context="{'group_by' : 'j_kel'}"/>    
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- UJIAN IPA -->
+
+        <record id="ipa_view_tree" model="ir.ui.view">
+            <field name="name">Data IPA</field>
+            <field name="model">ipa</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="peserta"/>
+                    <field name="j_kel"/>
+                    <field name="kelas"/>
+                    <field name="uh1"/>
+                    <field name="uh2"/>
+                    <field name="uh3"/>
+                    <field name="uts"/>
+                    <field name="uas"/>
+                    <field name="total" optional="show"/>
+                    <field name="rerata" optional="show"/>
+                    <!-- <field name="state" widget="badge" decoration-success="state == 'lulus'" decoration-danger="state == 'remidi'"/> -->
+                </tree>
+            </field>
+        </record>
+        
+        <record id="ipa_view_form" model="ir.ui.view">
+            <field name="name">IPA</field>
+            <field name="model">ipa</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="peserta"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <!-- Add your fields here -->
+                            <group string="Ulangan Harian">
+                                <field name="uh1"/>
+                                <field name="uh2"/>
+                                <field name="uh3"/>
+                            </group>
+                            <group string="Ujian Semester">    
+                                <field name="uts"/>
+                                <field name="uas"/>
+                            </group>    
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search view -->
+        <record id="ipa_view_search" model="ir.ui.view">
+            <field name="name">IPA Search</field>
+            <field name="model">ipa</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <field name="peserta"/>
+                    <field name="j_kel"/>
+                    <field name="kelas"/>
+                    <filter string="Remidi UH 1" name="uh1" domain="[('uh1', '&lt;=', '80')]"/>
+                    <filter string="Lulus UH 1" name="uh1" domain="[('uh1', '&gt;=', '80')]"/>
+                    <filter string="Remidi UH 2" name="uh2" domain="[('uh2', '&lt;=', '80')]"/>
+                    <filter string="Lulus UH 2" name="uh2" domain="[('uh2', '&gt;=', '80')]"/>
+                    <filter string="Remidi UH 3" name="uh3" domain="[('uh3', '&lt;=', '80')]"/>
+                    <filter string="Lulus UH 3" name="uh3" domain="[('uh3', '&gt;=', '80')]"/>
+                    <filter string="Remidi UTS" name="uts" domain="[('uts', '&lt;=', '80')]"/>
+                    <filter string="Lulus UTS" name="uts" domain="[('uts', '&gt;=', '80')]"/>
+                    <filter string="Remidi UAS" name="uas" domain="[('uas', '&lt;=', '80')]"/>
+                    <filter string="Lulus UAS" name="uas" domain="[('uas', '&gt;=', '80')]"/>
+                    <group expand="1" string="Gender">
+                        <filter string="Laki-Laki" name = "j_kel" context="{'group_by' : 'j_kel'}"/>
+                        <filter string="Perempuan" name = "j_kel" context="{'group_by' : 'j_kel'}"/>    
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- UJIAN IPS -->
+        
+        <record id="ips_view_tree" model="ir.ui.view">
+            <field name="name">Data IPS</field>
+            <field name="model">ips</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="peserta"/>
+                    <field name="j_kel"/>
+                    <field name="kelas"/>
+                    <field name="uh1"/>
+                    <field name="uh2"/>
+                    <field name="uh3"/>
+                    <field name="uts"/>
+                    <field name="uas"/>
+                    <field name="total" optional="show"/>
+                    <field name="rerata" optional="show"/>
+                    <field name="state" widget="badge"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="ips_view_form" model="ir.ui.view">
+            <field name="name">IPS</field>
+            <field name="model">ips</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="peserta"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <!-- Add your fields here -->
+                            <group string="Ulangan Harian">
+                                <field name="uh1"/>
+                                <field name="uh2"/>
+                                <field name="uh3"/>
+                            </group>
+                            <group string="Ujian Semester">    
+                                <field name="uts"/>
+                                <field name="uas"/>
+                            </group>    
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+                <!-- search view -->
+        <record id="ips_view_search" model="ir.ui.view">
+            <field name="name">ujian.view.search</field>
+            <field name="model">ips</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <field name="peserta"/>
+                    <field name="j_kel"/>
+                    <field name="kelas"/>
+                    <filter string="Remidi UH 1" name="uh1" domain="[('uh1', '&lt;=', '80')]"/>
+                    <filter string="Lulus UH 1" name="uh1" domain="[('uh1', '&gt;=', '80')]"/>
+                    <filter string="Remidi UH 2" name="uh2" domain="[('uh2', '&lt;=', '80')]"/>
+                    <filter string="Lulus UH 2" name="uh2" domain="[('uh2', '&gt;=', '80')]"/>
+                    <filter string="Remidi UH 3" name="uh3" domain="[('uh3', '&lt;=', '80')]"/>
+                    <filter string="Lulus UH 3" name="uh3" domain="[('uh3', '&gt;=', '80')]"/>
+                    <filter string="Remidi UTS" name="uts" domain="[('uts', '&lt;=', '80')]"/>
+                    <filter string="Lulus UTS" name="uts" domain="[('uts', '&gt;=', '80')]"/>
+                    <filter string="Remidi UAS" name="uas" domain="[('uas', '&lt;=', '80')]"/>
+                    <filter string="Lulus UAS" name="uas" domain="[('uas', '&gt;=', '80')]"/>
+                    <group expand="1" string="Group By">
+                        <filter string="J. Kelamin" name = "j_kel" context="{'group_by' : 'j_kel'}"/>  
+                        <filter string="Kelas" name = "kelas" context="{'group_by' : 'kelas'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- agama action window -->
+        <record id="agama_action" model="ir.actions.act_window">
+            <field name="name">Agama</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">agama</field>
+            <field name="context">{'group_by':'kelas'}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                </p>
+            </field>
+        </record>
+        <!-- ipa action window -->
+        <record id="ipa_action" model="ir.actions.act_window">
+            <field name="name">IPA</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ipa</field>
+            <field name="context">{'group_by':'kelas'}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                </p>
+            </field>
+        </record>
+        <!-- ips action window -->
+        <record id="ips_action" model="ir.actions.act_window">
+            <field name="name">IPS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ips</field>
+            <field name="context">{'group_by':'kelas'}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="ujian_menu_categ" name="Ujian" parent="rapot_menu_root" sequence="30"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="agama_menu_act" name="Agama" parent="ujian_menu_categ" action="agama_action" sequence="10"/>
+        <menuitem id="ipa_menu_act" name="IPA" parent="ujian_menu_categ" action="ipa_action" sequence="20"/>
+        <menuitem id="ips_menu_act" name="IPS" parent="ujian_menu_categ" action="ips_action" sequence="30"/>
+    </data>
+</odoo>
